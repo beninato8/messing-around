@@ -17,7 +17,9 @@ for i in range(1, big+1):
     print(i, out)
 
 # print("%s\n" % x for x in [])
-# print('\n'.join(['Fizz'*(x % 3 == 2) + 'Buzz'*(x % 5 == 4) or str(x + 1) for x in range(100)]))
+print('\n'.join(['Fizz'*(x % 3 == 2) + 'Buzz'*(x % 5 == 4) or str(x + 1) for x in range(100)]))
 
 # first, *mid, mid2, last = [1,2,3,4,5,6,7]
 # print(first, mid, mid2, last)
+
+print(False*'asdf' or 8)
