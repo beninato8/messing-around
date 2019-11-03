@@ -1,0 +1,64 @@
+Duke University 3333
+North Dakota State University 27014
+Virginia Commonwealth University 9478
+University of Central Florida 4457
+Mississippi State University 26388
+Liberty University 8610
+Virginia Polytechnic Institute and State University 4275
+Saint Louis University 17360
+University of Maryland 3507
+Belmont College 360190
+Louisiana State University 12860
+Yale University 3178
+The University of Louisville 20393
+University of Minnesota 2070
+Michigan State University 3163
+Bradley University 59248
+Gonzaga University 33430
+Fairleigh Dickinson University 68178
+Syracuse University 11878
+Baylor University 20777
+Marquette University 40208
+Murray State University 129647
+Florida State University 5597
+University of Vermont 11089
+University at Buffalo 8337
+Arizona State University 2386
+Texas Tech University 15083
+Northern Kentucky University 50432
+University of Nevada Reno 25541
+University of Florida 3108
+University of Michigan 1546
+University of Montana 36933
+University of Virginia 3600
+Gardner-Webb University 162141
+The University of Mississippi 32258
+The University of Oklahoma 9265
+University of Wisconsin, Madison 1806
+University of Oregon 5646
+Kansas State University 21375
+University of California Irvine 2588
+Villanova University 22961
+Saint Mary’s University 176712
+Purdue University 1549
+Old Dominion University 14607
+University of Cincinnati 8136
+Univeristy of Iowa 5858
+The University of Tennessee 27623
+Colgate University 51965
+University of North Carolina at Chapel Hill 3004
+Iona College 177614
+University of Utah 3344
+University of Washington 3479
+Auburn University 15932
+New Mexico State University 32576
+The University of Kansas 7138
+Northeastern University 8776
+Iowa State University 4235
+Ohio State University 4004
+Universty of Houston 4828
+Georgia State University 3889
+Wofford College 132162
+Seton Hall University 40674
+University of Kentucky 10182
+Abilene Christian University 143993
