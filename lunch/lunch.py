@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -10,7 +9,6 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import time
 import pandas as pd
 import numpy as np
-import sys
 
 def camel(s):
     if re.sub(r'[\n\t\s ]+', '', s) == '':
@@ -21,7 +19,6 @@ def camel(s):
     return ' '.join(l)
 
 def dishes(item):
-    # print([type(x) for x in item])
     title = item[0]
     options = item[1]
     dishes = []
@@ -49,12 +46,11 @@ def csv_format(s):
     s = s.replace('), (', ') (')
     return s
 
-def main(single=False):
-    path = os.path.dirname(__file__) + '/'
-    last_date = pd.read_csv(f'{path}lunch/lunch.csv', names = ['date', 'menu']).tail(1).values.tolist()[0][0]
+def main():
     today = datetime.now().strftime('%Y-%m-%d')
     print(today)
     page = requests.get('https://myschooldining.com/menlo')
+
     soup = BeautifulSoup(page.text, 'html.parser')
 
     foods = []
@@ -67,25 +63,22 @@ def main(single=False):
                 sides = menu.find('div', {'id':'menlodining_lunch_sides'})
                 pizza = menu.find('div', {'id':'menlodining_lunch_pizza'})
     menu = [('Soup', soup), ('Entree', entree), ('Veggie', veggie), ('Sides', sides), ('Pizza', pizza)]
-    menu = [x for x in menu if x[1]]
+
     d = dict()
     for x in menu:
         d = {**d, **dishes(x)}
 
     display = menu_print(d)
+    print(display)
+    print()
     # print(csv_format(display))
-    # exit()
     # last_date = 'asdf'
-    if single:
-        print(display)
-        return
-    write(authenticate(), 1, 1, display)
+    last_date = pd.read_csv('lunch.csv', names = ['date', 'menu']).tail(1).values.tolist()[0][0]
     if last_date != today:
-        print(display)
-        print()
         l = [today, csv_format(display)]
         df = pd.DataFrame(np.array(l).reshape(1,2))
-        df.to_csv(f'{path}lunch/lunch.csv', mode='a', header=False, index=False)
+        df.to_csv('lunch.csv', mode='a', header=False, index=False)
+    write(authenticate(), 1, 1, display)
     
     # seth = '6502245471'
     # me = '6509967590'
@@ -95,16 +88,13 @@ def x():
     print('asdf')
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        main(single=True)
-        exit()
     # main()
     # exit()
     # write(authenticate(), 1, 1, '')
     scheduler = BackgroundScheduler()
     # https://apscheduler.readthedocs.io/en/latest/modules/triggers/cron.html
     # scheduler.add_job(main, 'cron', minute=27, misfire_grace_time=20000)
-    scheduler.add_job(main, 'cron', day_of_week='mon-fri', hour='0-11', minute='0,15,30,45', misfire_grace_time=300)
+    scheduler.add_job(main, 'cron', day_of_week='mon-fri', hour=9, misfire_grace_time=20000)
     scheduler.start()
     print('running')
 
