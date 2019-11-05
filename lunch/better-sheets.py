@@ -4,7 +4,8 @@ import os
 
 def authenticate(url='https://docs.google.com/spreadsheets/d/107RYI3yNbn3NPRj-usYNWP6mLtP9yzPJ2uImAHVzO2o/'):
     scope = ['https://spreadsheets.google.com/feeds']
-    path = os.path.abspath(os.pardir) + '/credentials/menu.json'
+    path = os.path.dirname(os.path.realpath(__file__))
+    path = os.path.abspath(os.path.join(path, os.pardir)) + '/credentials/menu.json'
     creds = ServiceAccountCredentials.from_json_keyfile_name(path, scope)
     client = gspread.authorize(creds)
 
