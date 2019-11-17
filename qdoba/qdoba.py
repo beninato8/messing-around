@@ -57,7 +57,8 @@ def location_to_coords(location_url):
 
     street = address[3].replace('.html', '')
     street = ' '.join(street.split('-')).title()
-    # print(street, city, state)
+    print(street, city, state)
+    exit()
     location = get_location(street, city, state)
     try:
         return (location.latitude, location.longitude)
@@ -89,8 +90,6 @@ def scrape_it():
 
     for x in locations:
         print(x)
-
-# scrape_it()
 
 coords = [
 (61.2122475100441, -149.733622),
@@ -839,5 +838,5 @@ gmap3 = gmplot.GoogleMapPlotter(center[0], center[1], 4)
 gmap3.heatmap(lats, lons, radius=20)
 # gmap3.plot(lats, lons, 'cornflowerblue', edge_width = 2.5) 
 
-gmap3.draw("/Users/Nicholas/GitHub/messing around/qdoba.html")
+gmap3.draw("/Users/Nicholas/GitHub/messing around/qdoba/qdoba.html")
 # print(soup.prettify())
